@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import java.util.concurrent.TimeUnit;
 
 public class OrangeHRMHomeWork1 {
     private WebDriver driver;
@@ -14,6 +15,7 @@ public class OrangeHRMHomeWork1 {
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://s1.demo.opensourcecms.com/s/44");
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
     @Test(priority = 1)
