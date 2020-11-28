@@ -71,10 +71,10 @@ public class CssDinnerPlayFullGameHomeWork2 {
             rowForAnswer.sendKeys(answers[i]);
             Thread.sleep(1000);
             enterButton.click();
-            if (i == answers.length - 1) {
-                waitAfterAnswer.until(ExpectedConditions.presenceOfElementLocated(new By.ByClassName("winner")));
-            } else {
+            if (i < answers.length - 1) {
                 waitAfterAnswer.until(ExpectedConditions.textToBe(new By.ByClassName("level-text"), "Level " + (i + 2) + " of 32"));
+            } else {
+                waitAfterAnswer.until(ExpectedConditions.presenceOfElementLocated(new By.ByClassName("winner")));
             }
         }
         System.out.println("The end of game");

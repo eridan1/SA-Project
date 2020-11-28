@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MainPageSearchField {
     WebDriver driver;
-    // MainPageSearch mainPageSearch = new MainPageSearch(driver);
+    //MainPageSearch mainPageSearch = new MainPageSearch(driver);
 
     @BeforeTest
     public void setUp() {
@@ -18,7 +18,7 @@ public class MainPageSearchField {
         driver.get("https://rozetka.com.ua/");
         driver.manage().window().maximize();
         // implicit wait
-        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     @AfterTest
@@ -38,19 +38,19 @@ public class MainPageSearchField {
     @Test(priority = 2, description = "Negative test case")
     public void findInvalidValue() {
         MainPageSearch mainPageSearch = new MainPageSearch(driver);
-        mainPageSearch.searchFieldInput("*?:№;%:?");
+        mainPageSearch.searchFieldInput("::::");
         mainPageSearch.searchButtonClick();
-        mainPageSearch.waitForPageTitle("*?:№;%:?");
+        mainPageSearch.waitForPageTitle("::::");
         mainPageSearch.checkTheAbsenceOfItems();
     }
 
-    @Test(priority = 3, description = "Negative test case")
+    @Test(priority = 3)
     public void findValueNotFromBreadCrumbs() {
         MainPageSearch mainPageSearch = new MainPageSearch(driver);
         mainPageSearch.searchFieldInput("чупакабра");
         mainPageSearch.searchButtonClick();
         mainPageSearch.waitForPageTitle("чупакабра");
-        mainPageSearch.checkTheFirstItemIs("чупакабра");
+        mainPageSearch.checkTheFirstItemIs("чупакабру");
         mainPageSearch.checkFindItemsText("Найдено");
     }
 }

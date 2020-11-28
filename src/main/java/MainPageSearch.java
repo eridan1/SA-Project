@@ -14,6 +14,7 @@ public class MainPageSearch {
     By searchField = By.xpath("//input[@name='search' and @placeholder='Я ищу...']");
     By searchButton = By.xpath("//button[text()=' Найти ']");
     By firstItem = By.xpath("//span[@class='goods-tile__title']");
+    By notFoundItem = By.xpath("//p[contains(text(), 'не найдено')]");
     By pageHeader = By.xpath("//div[@class='central-wrapper']//div[@class='layout']");
 
     public MainPageSearch searchFieldInput(String search) {
@@ -40,12 +41,12 @@ public class MainPageSearch {
     }
 
     public MainPageSearch checkTheAbsenceOfItems() {
-        Assert.assertFalse(driver.findElement(firstItem).isSelected());
+        Assert.assertEquals(driver.findElement(notFoundItem).getText(), "ничего не найдено, попробуйте изменить запрос");
         return this;
     }
 
     public MainPageSearch checkFindItemsText(String text) {
-        Assert.assertEquals(driver.findElement(pageHeader).getText().contains(text), text);
+        Assert.assertTrue(driver.findElement(pageHeader).getText().contains(text));
         return this;
     }
 }
