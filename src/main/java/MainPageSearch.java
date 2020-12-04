@@ -15,7 +15,7 @@ public class MainPageSearch {
     By searchButton = By.xpath("//button[text()=' Найти ']");
     By firstItem = By.xpath("//span[@class='goods-tile__title']");
     By notFoundItem = By.xpath("//p[contains(text(), 'не найдено')]");
-    By pageHeader = By.xpath("//div[@class='central-wrapper']//div[@class='layout']");
+    By pageHeader = By.xpath("//span[@class='menu-toggler__text']");
 
     public MainPageSearch searchFieldInput(String search) {
         driver.findElement(searchField).sendKeys(search);

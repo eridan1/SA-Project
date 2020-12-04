@@ -6,18 +6,20 @@ import org.aeonbits.owner.ConfigFactory;
 })
 
 public interface Environment extends Config {
-    @DefaultValue("https://github.com/sergeynedaikhleb")
+    //@DefaultValue("https://github.com/sergeynedaikhleb")
     @Key("url")
     String myUrl();
 
-    @DefaultValue("sergey.nedaikhleb@i.ua")
+    //@DefaultValue("sergey.nedaikhleb@i.ua")
+    @Key("login")
     String login();
 
-    @DefaultValue("testEnvironment")
+    //@DefaultValue("testEnvironment")
+    @Key("password")
     String password();
 
+    //@DefaultValue("sergeynedaikhleb")
     @Key("name")
-    @DefaultValue("sergeynedaikhleb")
     String accountOwner();
 
     Environment testEnvironment = ConfigFactory.create(Environment.class);

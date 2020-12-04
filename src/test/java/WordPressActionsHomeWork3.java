@@ -4,6 +4,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class WordPressActionsHomeWork3 {
     WebDriver driver;
 
@@ -11,6 +13,7 @@ public class WordPressActionsHomeWork3 {
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://s1.demo.opensourcecms.com/s/39");
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 

@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import java.util.concurrent.TimeUnit;
 
 public class OrangeHRMHomeWork1 {
@@ -33,9 +34,9 @@ public class OrangeHRMHomeWork1 {
         submitButton.click();
         // check result
         Assert.assertTrue(driver.getCurrentUrl().contains("orangehrm/index.php"));
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id='option-menu']/li[1]")).getText(), "Добро пожаловать, Admin");
+        Assert.assertEquals(driver.findElement(By.xpath("//ul[@id='option-menu']/li[1]")).getText(), "Добро пожаловать, Admin");
         // define logout element
-        WebElement logoutElement = driver.findElement(By.xpath("//*[@id='option-menu']/li[3]/a"));
+        WebElement logoutElement = driver.findElement(By.xpath("//ul[@id='option-menu']/li[3]/a"));
         // logging out
         logoutElement.click();
         // check result

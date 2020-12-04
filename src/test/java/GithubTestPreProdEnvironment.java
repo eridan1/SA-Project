@@ -3,17 +3,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class GithubTestPreprodEnvironments {
+public class GithubTestPreProdEnvironment {
     WebDriver driver;
-    Environment testEnvironment = ConfigFactory.create(Environment.class);
+    Environment testEnvironment;
 
     @BeforeTest
-    public void setUp() {
+    @Parameters({"environment"})
+    public void setUp(String environment) {
         driver = new ChromeDriver();
+        ConfigFactory.setProperty("env", environment);
+        testEnvironment = ConfigFactory.create(Environment.class);
         driver.get(testEnvironment.myUrl());
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
     }
 
     @AfterTest

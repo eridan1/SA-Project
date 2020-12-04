@@ -11,10 +11,10 @@ public class WordPressLoginHomeWork3 {
         this.driver = driver;
     }
 
-    By signInLinkMainPage = By.xpath("//*[@id='meta-2']/ul/li[1]/a");
-    By loginField = By.xpath("//*[@id='user_login']");
-    By passwordField = By.xpath("//*[@id='user_pass']");
-    By submitButton = By.xpath("//*[@id='wp-submit']");
+    By signInLinkMainPage = By.xpath("//section[@id='meta-2']/ul/li[1]/a");
+    By loginField = By.xpath("//input[@id='user_login']");
+    By passwordField = By.xpath("//input[@id='user_pass']");
+    By submitButton = By.xpath("//input[@id='wp-submit']");
 
     public WordPressLoginHomeWork3 signInLinkClick() {
         WebElement topFrame = driver.findElement(By.xpath("//a/span[contains(text(),'Remove Frame')]"));
@@ -23,10 +23,10 @@ public class WordPressLoginHomeWork3 {
         return this;
     }
 
-    public WordPressLoginHomeWork3 waitForPageTitle() {
+    public WordPressLoginHomeWork3 waitForPageText() {
         new WebDriverWait(driver, 10).
                 until(ExpectedConditions.textToBePresentInElement(
-                        driver.findElement(By.xpath("//p[@id='backtoblog']/a")), "Back to opensourcecms"));
+                        driver.findElement(By.xpath("//p[@id='backtoblog']/a")), "Back to"));
         return this;
     }
 
@@ -47,7 +47,7 @@ public class WordPressLoginHomeWork3 {
 
     public WordPressLoginHomeWork3 loginUserToAccount(String login, String password) {
         signInLinkClick();
-        waitForPageTitle();
+        waitForPageText();
         sendLoginField(login);
         sendPasswordField(password);
         sendSubmitButton();

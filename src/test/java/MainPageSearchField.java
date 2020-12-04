@@ -34,22 +34,22 @@ public class MainPageSearchField {
         mainSearch.checkTheFirstItemIs("Пылесос");
     }
 
-    @Test(priority = 2, description = "Negative test case")
+    @Test(priority = 2)
+    public void findValueNotFromBreadCrumbs() {
+        MainPageSearch mainPageSearch = new MainPageSearch(driver);
+        mainPageSearch.searchFieldInput("телевизор");
+        mainPageSearch.searchButtonClick();
+        mainPageSearch.waitForPageTitle("Телевизоры");
+        mainPageSearch.checkTheFirstItemIs("Телевизор");
+        mainPageSearch.checkFindItemsText("Каталог");
+    }
+
+    @Test(priority = 3, description = "Negative test case")
     public void findInvalidValue() {
         MainPageSearch mainPageSearch = new MainPageSearch(driver);
         mainPageSearch.searchFieldInput("::::");
         mainPageSearch.searchButtonClick();
         mainPageSearch.waitForPageTitle("::::");
         mainPageSearch.checkTheAbsenceOfItems();
-    }
-
-    @Test(priority = 3)
-    public void findValueNotFromBreadCrumbs() {
-        MainPageSearch mainPageSearch = new MainPageSearch(driver);
-        mainPageSearch.searchFieldInput("чупакабра");
-        mainPageSearch.searchButtonClick();
-        mainPageSearch.waitForPageTitle("чупакабра");
-        mainPageSearch.checkTheFirstItemIs("чупакабру");
-        mainPageSearch.checkFindItemsText("Найдено");
     }
 }

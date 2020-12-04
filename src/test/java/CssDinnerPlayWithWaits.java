@@ -32,7 +32,7 @@ public class CssDinnerPlayWithWaits {
         // define some locators for this game
         WebElement currentGameTask = driver.findElement(By.className("order"));
         WebElement gameLevel = driver.findElement(By.className("level-text"));
-        WebElement rowForAnswer = driver.findElement(By.xpath("//*[@class='input-strobe' and @type='text']"));
+        WebElement rowForAnswer = driver.findElement(By.xpath("//input[@class='input-strobe' and @type='text']"));
         WebElement enterButton = driver.findElement(By.xpath("//div[contains(@class,'enter-button') and contains(text(), 'enter')]"));
         // define an explicit waits
         WebDriverWait waitBeforeInputAnswer = (new WebDriverWait(driver, 8));

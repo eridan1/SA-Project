@@ -2,16 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression" verbose="1">
-    <!--<test name="TestLoginLogout"><classes><class name="TestLoginLogout"/></classes></test>-->
-    <test name="TryingFindElements">
+    <test name="TestLoginLogout"><classes><class name="TestLoginLogout"/></classes></test>
+    <test name="TryingFindElements"><classes><class name="TryingFindElements"/></classes></test>
+    <test name="MainPageSearchField"><classes><class name="MainPageSearchField"/></classes></test>
+    <test name="CSSDinner"><classes><class name="CssDinnerPlayWithWaits"/></classes></test>
+    <test name="OrangeHRM"><classes><class name="OrangeHRMHomeWork1"/></classes></test>
+    <test name="CSSDinnerFull"><classes><class name="CssDinnerPlayFullGameHomeWork2"/></classes></test>
+    <test name="WordPress"><classes><class name="WordPressActionsHomeWork3"/></classes></test>
+    <test name="GithubPreProdTest">
+        <parameter name="environment" value="preprod"/>
         <classes>
-            <class name="TryingFindElements"/>
-        </classes>
-    </test>
-    <!--<test name="MainPageSearchField"><classes><class name="MainPageSearchField"/></classes></test>-->
-    <test name="GithubTest">
-        <classes>
-            <class name="GithubTestPreprodEnvironments"/>
+            <class name="GithubTestPreProdEnvironment"/>
         </classes>
     </test>
 </suite>
